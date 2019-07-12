@@ -186,8 +186,7 @@ def get_min_host(net_address_bin, mask_short):
 
 def get_max_host(broadcast_address_bin):
     last_octet = broadcast_address_bin[-8:]
-    max_host_bin = broadcast_address_bin[:-8] + \
-        dec2binary(int(last_octet, 2)-1, 8)
+    max_host_bin = broadcast_address_bin[:-8] + dec2binary(int(last_octet, 2)-1, 8)
     max_host_dec = [int(part, 2) for part in max_host_bin.split('.')]
     return {
         'bin': max_host_bin,
@@ -198,5 +197,6 @@ def get_max_host(broadcast_address_bin):
 def get_hosts_number(mask_bin):
     return 2 ** mask_bin.count('0') - 2
 
-    # address format: 111.222.333.444/16
+
+# address format: 111.222.333.444/16
 subnet_calculator()  # '11.130.13.14/12')
